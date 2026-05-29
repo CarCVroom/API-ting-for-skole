@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>uhhhmm</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+        <script defer src="srcipt.js"></script>
+        <style>
+                .dataValg {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                }.noUi-target {
+                height: 4px;
+                background: #333;
+                border: none;
+                box-shadow: none;
+                margin: 10px 0;
+                }
+
+                .noUi-connect {
+                background: #1a3a5c;
+                }
+
+                .noUi-handle {
+                width: 16px !important;
+                height: 16px !important; /* Thanks Claude */
+                right: -8px !important;
+                top: -6px !important;
+                border-radius: 50%;
+                background: #ccc;
+                border: none;
+                box-shadow: none;
+                cursor: pointer;
+                }
+
+                .noUi-handle::before,
+                .noUi-handle::after {
+                display: none;
+                }
+
+                .noUi-tooltip {
+                display: none;
+                background: #333;
+                color: #fff;
+                border: none;
+                font-size: 12px;
+                padding: 2px 6px;
+                border-radius: 4px;
+                }
+
+                .noUi-active .noUi-tooltip {
+                display: block;
+                }
+
+        </style>
+</head>
+<body>
+        
+        <h1>Velg hvilken data du vil ha</h1>
+        <div class="dataValg">
+        <select name="omraader" id="omraader">
+                <option value="0">Alle områder</option>
+                <option value="1">Østlandet (1)</option>
+                <option value="2">Sørlandet (2)</option>
+                <option value="3">Midt-Norge (3)</option>
+                <option value="4">Nord-Norge (4)</option>
+                <option value="5">Vestlandet (5)</option>
+        </select>
+        <select name="omrType" id="omrType">
+                <option value="">Alle omr typer</option>
+                <option value="VASS">VASS</option>
+                <option value="EL">EL</option>
+                <option value="NO">NO</option>
+        </select>
+        <div id="slide"></div>
+                <div style="display:flex; justify-content:space-between;">
+                <span id="from-label">Fra: 1995</span>
+                <span id="to-label">Til: 2026</span>
+        </div>
+        
+        </div><br><br>
+        <button onclick="getData()">Start</button>
+
+      
+        </div>
+
+
+        <canvas id="grafOmEnergi"></canvas>
+
+</body>
+</html>
